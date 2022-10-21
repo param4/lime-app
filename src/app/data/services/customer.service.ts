@@ -16,10 +16,17 @@ export class CustomerService {
 
   createCustomer(email: string, password: string, firstName: string, lastName: string): Observable<Customer> {
     return this.http.post<Customer>(this.url, {
-      email: email,
-      password: password,
-      firstName: firstName,
-      lastName: lastName
+      data: {
+        type: "customers",
+        attributes: {
+          email: email,
+          password: password,
+          metadata: {
+              first_name: firstName,
+              last_name: lastName
+          }
+        }
+      }
     })
       .pipe(catchError(this.eh.handleError));
   }
