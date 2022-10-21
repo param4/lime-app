@@ -1,0 +1,18 @@
+.product-card {
+    max-width: 400px;
+    width: 100%;
+}
+
+button {
+    margin: 3px !important;
+}
+
+.mat-card {
+    margin: 0 1em 2em 1em;
+    border: 1px solid lightgray !important;
+}
+
+img {
+    height : 400px;
+    border-bottom: 1px solid lightgray;
+}

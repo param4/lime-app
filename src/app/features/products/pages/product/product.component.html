@@ -1,0 +1,23 @@
+<div id="container">
+    <mat-card *ngIf="product" class="product-card col-md-4">
+        <img mat-card-image src="{{product.attributes.image_url}}" alt="Photo of a product">
+        <mat-card-content>
+            <mat-card-title>{{product.attributes.name}}</mat-card-title>
+            <mat-card-subtitle>{{product.attributes.pieces_per_pack | currency:'EUR'}}</mat-card-subtitle>
+            <p>
+                {{product.attributes.description}}
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <app-item-quantity [quantity]="quantity" [maxValue]="10" (setQuantityEvent)="setQuantity($event)"></app-item-quantity>
+            <button mat-raised-button color="accent" (click)="addItemToCart()">
+                <mat-icon>add_shopping_cart</mat-icon>
+                Add to cart
+            </button>
+            <button mat-raised-button color="primary" (click)="goBack()">
+                <mat-icon>storefront</mat-icon>
+                Continue shopping
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>
